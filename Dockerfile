@@ -1,6 +1,5 @@
-FROM alpine:3.7
+FROM alpine:3.8
 RUN apk add --no-cache iproute2
-ENV DNSMASQ_PORT=53
-ENV NET_OVERLAY_IF=weave
-ADD . .
-ENTRYPOINT ./weave-tc.sh
+ADD apply.sh /
+ADD remove.sh /
+ENTRYPOINT /apply.sh
